@@ -1,0 +1,9 @@
+{
+    "extends": "tslint:recommended",
+    "rules": {
+            "no-reference": false,
+            "no-console": false,
+            "quotemark": false,
+            "ordered-imports": false
+          }
+}

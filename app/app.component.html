@@ -1,0 +1,44 @@
+<div class="page-header">
+ <h1><b>To buy list</b></h1>
+</div>
+<div class="panel">
+ <div class="form-inline">
+     <div class="form-group">
+         <div class="col-md-8">
+             <input class="form-control" [(ngModel)]="text"  placeholder = "Description.." />
+         </div>
+     </div>
+     <div class="form-group">
+         <div class="col-md-6">
+             <input type="number" class="form-control" min="0"
+             [(ngModel)]="price" placeholder="Price.." />
+             <input type="submit">
+         </div>
+     </div>
+     <div class="form-group">
+         <div class="col-md-offset-2 col-md-8">
+             <button class="btn btn-info" [disabled]="!text || !price || price < 0"
+              (click)="addItem(text, price)">Add Item</button>
+         </div>
+     </div>
+ </div>
+ <br>
+ <table class="table table-striped">
+     <thead>
+         <tr>
+             <th>Item</th>
+             <th>Price</th>
+             <th>Bought</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr *ngFor="let item of items">
+             <td>{{item.purchase}}
+             <button class="btn btn-danger btn-xs" (click)="deleteItem(item)">Delete</button>
+             </td>
+             <td>{{item.price}}</td>
+             <td><input type="checkbox" [(ngModel)]="item.done" /></td>
+         </tr>
+     </tbody>
+ </table>
+</div>
